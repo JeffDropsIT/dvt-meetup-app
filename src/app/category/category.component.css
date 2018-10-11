@@ -1,0 +1,11 @@
+li {
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    cursor: pointer
+} 
+li:hover {
+  background-color: #f2f2f2
+}
+li:active {
+  background-color: #e2e2e2
+}
