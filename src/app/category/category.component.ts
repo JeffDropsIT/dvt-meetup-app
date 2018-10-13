@@ -11,15 +11,19 @@ import { Category } from "./category.model";
 export class CategoryComponent implements OnInit {
   @Input() category:Category;
 
-  constructor() { 
-  }
+  constructor() {}
 
+
+  
   ngOnInit() {
+    this.displayCategory();
+   
 
+  }
+  displayCategory():void{
     $('li').click(function () {
       $(this).parents('.dropdown').find('span').text($(this).text());
     });
-
   }
 
 }
