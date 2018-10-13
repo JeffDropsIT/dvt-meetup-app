@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
 import { Category } from "../category/category.model";
+import { CategoriesService } from '../services/categories/categories.service';
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -9,21 +10,21 @@ import { Category } from "../category/category.model";
 export class CategoriesComponent implements OnInit {
  
 
-  categories:Category[];
+  categories = [];
 
-  constructor() { 
-    this.categories = [new Category(1, "Arts & Culture", "Arts"), 
-                new Category(2, "Career & Business", "Business"), new Category( 4, "Community & Environment", "Community"), new Category(5, "Dancing", "Dancing"), new Category(18, "Book Clubs", "Book Clubs") ]
+  constructor(private categoriesService: CategoriesService) { 
+  
   }
 
-  addCategory(id:number, name:string, shortname:string):void{
-    console.log(`adding article Category: ${name} and id ${id}`);
-    this.categories.push(new Category(id, name, shortname));
 
-
-  }
 
   ngOnInit() {
+
+
+    this.categoriesService.getCategories().subscribe(data => this.categories = data.results);
+
+
+
     /*Dropdown Menu*/
       $('.dropdown').click(function () {
         $(this).attr('tabindex', 1).focus();
