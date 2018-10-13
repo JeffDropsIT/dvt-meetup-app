@@ -1,8 +1,12 @@
 .container{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 .heading-container{
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-content: center;
