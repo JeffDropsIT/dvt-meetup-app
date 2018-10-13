@@ -12,8 +12,6 @@ export class CategoryComponent implements OnInit {
   @Input() category:Category;
 
   constructor() {}
-
-
   
   ngOnInit() {
     this.displayCategory();

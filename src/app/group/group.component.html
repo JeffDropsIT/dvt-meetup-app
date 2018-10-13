@@ -1,0 +1,24 @@
+<div class="card card1" >
+    <img class="card-img-top current-work"  src="{{ group.key_photo  ?  group.key_photo.photo_link : img_placeholder }}" alt="Card image cap">
+    <div class="card-body-img">
+            <div class="card-body img-present">
+              <h6>{{ group.name }}</h6>
+  
+              <p >{{ group.localized_location }}</p>
+            </div>
+            
+            <div id="card-footer">
+                
+                    <div class="avatar-container card-content">
+                        <img class="avatar"  src="{{ group.organizer.photo ? group.organizer.photo.photo_link : img_placeholder  }}"/>
+                        
+                    </div>
+                    <div class="user-details-container card-content">
+                           
+                            <h6 class="card-title" >{{ group.organizer.name  }}</h6>
+                            <a href="{{ group.link }}" >See more</a>
+                    </div>
+                    
+            </div>
+    </div>
+  </div>

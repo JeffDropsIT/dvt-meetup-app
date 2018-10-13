@@ -1,0 +1,49 @@
+.card-img-top{
+
+    height: 150px;
+   
+}
+
+.card{
+    width: 300px;
+    margin: 10px;
+    height: 350px;
+
+}
+.current-work{
+    background: #8de6f394;
+}
+.card-body-img{
+    padding: 4px 5px;
+}
+.avatar{
+    width: 40px;
+    height: 40px;  
+    
+    border-radius: 100%;
+}
+.avatar-container{
+    border-radius: 100%;
+}
+.img-present{
+    padding: 4px;
+    margin: 4px;
+    height: 100px;
+}
+
+#card-footer{
+    /* border: 1px solid brown; */
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    height: 100px;;
+}
+.avatar-container{
+    border-radius: 100%;
+}
+.card-content{
+    margin: 10px;
+}
+.user-details-container > h6{
+    margin: 0;
+}
