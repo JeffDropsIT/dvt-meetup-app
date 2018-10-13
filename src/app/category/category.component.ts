@@ -15,6 +15,11 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    $('li').click(function () {
+      $(this).parents('.dropdown').find('span').text($(this).text());
+    });
+
   }
 
 }
