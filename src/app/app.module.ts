@@ -8,19 +8,24 @@ import { CategoryComponent } from './category/category.component';
 import { CategoriesService } from './services/categories/categories.service';
 import { HttpClientModule } from "@angular/common/http";
 import { GroupComponent } from './group/group.component'
-import { GroupsService } from "./services/groups/groups.service"
+import { GroupsService } from "./services/groups/groups.service";
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import { AppRoutingModule} from "./app-routing.module"
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
     GroupsComponent,
     CategoryComponent,
-    GroupComponent
+    GroupComponent,
+    NavBarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
-
+    HttpClientModule,
+    AppRoutingModule
 
   ],
   providers: [CategoriesService, GroupsService],

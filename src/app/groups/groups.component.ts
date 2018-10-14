@@ -8,15 +8,17 @@ import { error } from '../../../node_modules/@angular/compiler/src/util';
   styleUrls: ['./groups.component.css']
 })
 export class GroupsComponent implements OnInit {
-
+  isLoading = false;
   groups = []
   constructor(private groupsService: GroupsService) { }
 
 
   getGroups(): void{
-    this.groupsService.getGroups().subscribe(data => this.groups = data);
-    
-     this.groupsService.getGroups().subscribe(data => console.log("Groups",data));
+    this.isLoading = true;
+    this.groupsService.getGroups().subscribe(data => this.groups = data, error => console.log(error), ()=>{
+      this.isLoading = false;
+    });
+    //this.groupsService.getGroups().subscribe(data => console.log("Groups",data));
   }
   ngOnInit() {
     this.getGroups();

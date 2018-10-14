@@ -1,0 +1,35 @@
+.navBar{
+    display: flex;  
+    height: 54px;
+    align-content: center;
+    align-items:  center;
+    justify-content: space-between;
+    box-shadow: 0 1px 2px rgb(204, 204, 204);
+    cursor: pointer;
+    z-index: 1000;
+    position: fixed;
+    top: 0%;
+    background: #fff;
+    width: 100%;
+}
+
+.navBar-container{
+    position: fixed;
+}
+.settings > img, .back > img{
+    width: 34px;
+    height: 34px;
+    
+}
+
+.settings {
+    padding: 6px 20px 6px 6px;
+}
+.back{
+    padding: 6px 6px 6px 20px;
+}
+
+.back.active{
+    visibility: hidden;
+    cursor: default;   
+}
