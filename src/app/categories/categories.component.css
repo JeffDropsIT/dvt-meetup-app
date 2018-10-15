@@ -3,7 +3,8 @@
     font-family: sans-serif
 }
 body {
-    background-color: #fafafa
+    background-color: #fafafa;
+
 }
 span.msg,
 span.choose {
@@ -15,9 +16,11 @@ span.choose {
     width: 500px;
     margin: 50px auto 0;
     text-align: center;
+
     position: relative;
     top: 50px;
   }
+
   
   /*Styling Selectbox*/
 .dropdown {
