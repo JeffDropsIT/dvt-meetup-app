@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from '../../../../node_modules/rxjs';
-import { IGroup } from './group.interface';
+
+
 
 
 const api_cors_anywhere = "https://cors-anywhere.herokuapp.com/" //dublicate make it a dependecy
@@ -13,7 +14,12 @@ export class GroupsService {
   url: string = api_cors_anywhere + api_url;
   constructor(private http:HttpClient) { }
 
-  getGroups(): Observable<any>{
+  getGroups(categoryId?:number): Observable<any>{
+    if(categoryId){
+      this.url =  api_cors_anywhere + api_url +`&category=${categoryId}`
+      console.log(this.url)
+    }
+
     return this.http.get<any>(this.url);
   }
 }

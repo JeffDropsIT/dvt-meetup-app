@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupsService } from '../services/groups/groups.service';
-import { error } from '../../../node_modules/@angular/compiler/src/util';
+import { ActivatedRoute, ParamMap } from "@angular/router"
+import { startWith } from "rxjs/operators";
 
 @Component({
   selector: 'app-groups',
@@ -9,19 +10,48 @@ import { error } from '../../../node_modules/@angular/compiler/src/util';
 })
 export class GroupsComponent implements OnInit {
   isLoading = false;
-  groups = []
-  constructor(private groupsService: GroupsService) { }
+  groups;
+  constructor(private groupsService: GroupsService, private route:ActivatedRoute) { }
 
 
-  getGroups(): void{
-    this.isLoading = true;
-    this.groupsService.getGroups().subscribe(data => this.groups = data, error => console.log(error), ()=>{
-      this.isLoading = false;
+  getGroups(categoryId?:number): void{
+    console.log("getGroups id: "+categoryId);
+    if(this.groups === null){
+         this.isLoading = true;
+    }
+    this.groups = this.groupsService.getGroups(categoryId);
+    this.groups.subscribe( 
+
+      data => localStorage[categoryId] = JSON.stringify(data),
+
+      error => console.log(error),
+
+      ()=>{
+        this.isLoading = false; 
+      }
+    );
+
+    this.groups = this.groups.pipe(
+      startWith(JSON.parse(localStorage[categoryId] || "[]"))
+    )
+    
+
+
+
+    console.log(typeof(this.groups));
+  }
+
+  getCategoryId(){
+
+    this.route.paramMap.subscribe((params: ParamMap) =>{
+      let id = parseInt(params.get("id"));
+      this.getGroups(id);
     });
-    //this.groupsService.getGroups().subscribe(data => console.log("Groups",data));
+
   }
   ngOnInit() {
-    this.getGroups();
+
+    this.getCategoryId();
     
   }
 

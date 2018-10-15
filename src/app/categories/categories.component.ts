@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
-import { Category } from "../category/category.model";
 import { CategoriesService } from '../services/categories/categories.service';
+import { startWith } from "rxjs/operators";
+const KEY = "CAT_KEYS";
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -10,12 +11,20 @@ import { CategoriesService } from '../services/categories/categories.service';
 export class CategoriesComponent implements OnInit {
  
 
-  categories = [];
+  categories;
   constructor(private categoriesService: CategoriesService) { }
 
 
   getCategories(): void{
-    this.categoriesService.getCategories().subscribe(data => this.categories = data.results);
+    this.categories = this.categoriesService.getCategories();  //.subscribe(data => this.categories = data.results);
+
+    this.categories.subscribe( 
+      data => localStorage[KEY] = JSON.stringify(data.results)
+    );
+
+    this.categories = this.categories.pipe(
+      startWith(JSON.parse(localStorage[KEY] || "[]"))
+    )
   }
 
 

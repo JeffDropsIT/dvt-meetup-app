@@ -11,7 +11,8 @@ import { GroupComponent } from './group/group.component'
 import { GroupsService } from "./services/groups/groups.service";
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
-import { AppRoutingModule} from "./app-routing.module"
+import { AppRoutingModule} from "./app-routing.module";
+
 @NgModule({
   declarations: [
     AppComponent,

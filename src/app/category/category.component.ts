@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Category } from "./category.model";
+import { Router } from "@angular/router"
 @Component({
   selector: 'app-category',
-  template: `<li >
+  template: `<li (click)="onSelectedCategory()">
                     {{ category.name }}
               </li>
                 `,
@@ -11,12 +12,16 @@ import { Category } from "./category.model";
 export class CategoryComponent implements OnInit {
   @Input() category:Category;
 
-  constructor() {}
+  constructor(private router: Router) {}
   
   ngOnInit() {
     this.displayCategory();
    
 
+  }
+  onSelectedCategory(){
+    console.log("Id: " + this.category.id + " item: "+this.category.name);
+    this.router.navigate(["/groups", this.category.id]);
   }
   displayCategory():void{
     $('li').click(function () {

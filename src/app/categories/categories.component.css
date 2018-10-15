@@ -40,44 +40,7 @@ span.choose {
     display: flex;
     flex-direction: row;
 }
-.btn-done {
-    margin-left: 20px;
 
-}
-
-
-
-.btn-done > button:hover {
-color: white;
-background: #838687;
-}
-.btn-done > button:active {
-letter-spacing: 2px;
-}
-.btn-done > button:after {
-content: "SUBMIT";
-}
-.btn-done > button {
-    border: none;
-    outline: none;
-    height: 40px;
-    text-align: center;
-    width: 130px;
-    border-radius: 40px;
-    background: #fff;
-    border: 2px solid rgb(37, 36, 36);
-    color: #838687;
-    letter-spacing: 1px;
-    text-shadow: 0;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    font-family: 'Roboto', sans-serif;
-    font: bold;
-    box-shadow: 0 0 4px rgb(204, 204, 204)
-
-}
 .dropdown .select {
       cursor: pointer;
       display: block;

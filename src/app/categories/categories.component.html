@@ -10,14 +10,12 @@
           </div>
           <ul class="dropdown-menu" >
             
-           <app-category *ngFor="let category of categories" [category]="category"></app-category>
+           <app-category  *ngFor="let category of categories | async" [category]="category"></app-category>
     
           </ul>
           
         </div>
-        <div class="btn-done">
-            <button ></button>
-        </div>
+
   </div>
    
 </div>
