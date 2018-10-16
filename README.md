@@ -1,5 +1,13 @@
 # DvtMeetupApp
 
+## Screenshots
+### filter
+![a link](https://github.com/JeffDropsIT/dvt-meetup-app/blob/master/filter.png)
+### groups
+![a link](https://github.com/JeffDropsIT/dvt-meetup-app/blob/master/groups.png)
+### settings
+![a link](https://github.com/JeffDropsIT/dvt-meetup-app/blob/master/settings.png)
+
 ## To do list:
 1. Add cache on both the settings page as well as the groups page. (loading disabled[enable])
 2. Add filtering option on groups page.  (added filter)
