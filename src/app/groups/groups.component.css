@@ -7,12 +7,29 @@
     position: relative;
     top: 75px;
 }
+.selected-category{
+    padding: 20px;
+}
+.filter {
+    margin-right: 195px;
+}
+.filter-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    top: 75px;
+}
 .heading-container{
-    margin-top: 20px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
     position: relative;
+    flex-direction: column;
+    background: #838687;
     top: 60px;
 }

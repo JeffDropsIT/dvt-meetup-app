@@ -6,10 +6,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const routes: Routes = [
-    { path: '', redirectTo: '/groups', pathMatch: 'full' },
+    {path: '', redirectTo: '/groups', pathMatch: 'full' },
     {path:"settings", component: CategoriesComponent},
     {path:"groups", component: GroupsComponent},
-    {path:"groups/:id", component: GroupsComponent},
+    {path:"groups/:id/:name", component: GroupsComponent},
     {path:"**", component: PageNotFoundComponent}
 ]
 

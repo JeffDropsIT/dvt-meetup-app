@@ -19,7 +19,7 @@ export class CategoriesComponent implements OnInit {
     this.categories = this.categoriesService.getCategories();  //.subscribe(data => this.categories = data.results);
 
     this.categories.subscribe( 
-      data => localStorage[KEY] = JSON.stringify(data.results)
+      data => {if(data){localStorage[KEY] = JSON.stringify(data.results)}}
     );
 
     this.categories = this.categories.pipe(

@@ -1,0 +1,10 @@
+<div class="filter-container">
+  <div class="filter" (click)="onFilter()" >
+    <button >FILTER</button>
+  </div>
+  <div class="filter-box">
+    <ul class="items">
+      <li *ngFor="let categoryId of groupsObj" (click)="onSelected(categoryId.id)" id="{{ categoryId.id }}">{{ categoryId.name }}</li>
+    </ul>
+  </div>
+</div>

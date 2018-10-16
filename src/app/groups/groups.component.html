@@ -1,9 +1,15 @@
 
 
 <div class="heading-container">
-    <h1 class="heading">GROUPS</h1>
+    <div class="selected-category">
+      <h1>{{ selectedCategory ?  selectedCategory : "GROUPS"}}</h1>
+    </div>
 </div>
-
+<div class="filter-container">
+  <app-filter class="filter" [groupsObj]="groupsObj"></app-filter>
+  <div style="visibility: hidden; width: 300px; height: 0px; margin: 10px;" >align</div>
+  <div style="visibility: hidden; width: 300px; height: 0px; margin: 10px;" >align</div>
+</div>
 <div class="container">
   <p *ngIf="isLoading">loading....</p>
   <app-group *ngFor="let group of groups | async" [group]="group"></app-group>

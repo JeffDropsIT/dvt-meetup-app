@@ -12,6 +12,7 @@ import { GroupsService } from "./services/groups/groups.service";
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 import { AppRoutingModule} from "./app-routing.module";
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AppRoutingModule} from "./app-routing.module";
     CategoryComponent,
     GroupComponent,
     NavBarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

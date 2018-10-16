@@ -14,7 +14,7 @@ export class GroupsService {
   url: string = api_cors_anywhere + api_url;
   constructor(private http:HttpClient) { }
 
-  getGroups(categoryId?:number): Observable<any>{
+  getGroups(categoryId?): Observable<any>{
     if(categoryId){
       this.url =  api_cors_anywhere + api_url +`&category=${categoryId}`
       console.log(this.url)
@@ -22,4 +22,14 @@ export class GroupsService {
 
     return this.http.get<any>(this.url);
   }
+  getFilterGroups(ids){
+    if(ids){
+      this.url =  api_cors_anywhere + api_url +`&category=${ids}`
+      console.log(this.url)
+    }
+
+  
+    return this.http.get<any>(this.url);
+  }
+  
 }

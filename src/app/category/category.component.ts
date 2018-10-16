@@ -21,7 +21,7 @@ export class CategoryComponent implements OnInit {
   }
   onSelectedCategory(){
     console.log("Id: " + this.category.id + " item: "+this.category.name);
-    this.router.navigate(["/groups", this.category.id]);
+    this.router.navigate(["/groups", this.category.id ,this.category.name]);
   }
   displayCategory():void{
     $('li').click(function () {
