@@ -12,6 +12,7 @@ export class GroupsComponent implements OnInit {
   isLoading = false;
   groups;
   selectedCategory;
+  errorMessage;
   groupsObj = [];
   allGroups = [];
   idCollection = [];
@@ -93,7 +94,10 @@ onFilterResults():void{
     }
     this.groups.subscribe( 
       data => localStorage[categoryId] = JSON.stringify(data),
-      error => console.log(error),
+      error =>{
+      this.errorMessage = error;
+      }
+      ,
       ()=>{
         this.isLoading = false; 
       }

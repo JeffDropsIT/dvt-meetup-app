@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from '../../../../node_modules/rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError} from '../../../../node_modules/rxjs';
 
-
+import { catchError } from 'rxjs/operators'﻿
 
 
 const api_cors_anywhere = "https://cors-anywhere.herokuapp.com/" //dublicate make it a dependecy
@@ -20,7 +20,7 @@ export class GroupsService {
       console.log(this.url)
     }
 
-    return this.http.get<any>(this.url);
+    return this.http.get<any>(this.url).pipe(catchError(this.errorHandler));;
   }
   getFilterGroups(ids){
     if(ids){
@@ -29,7 +29,11 @@ export class GroupsService {
     }
 
   
-    return this.http.get<any>(this.url);
+    return this.http.get<any>(this.url).pipe(catchError(this.errorHandler));;
+  }
+
+  errorHandler(error: HttpErrorResponse){
+    return throwError(error.message || "Server Error")
   }
   
 }

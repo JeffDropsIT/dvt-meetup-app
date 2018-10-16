@@ -12,5 +12,6 @@
 </div>
 <div class="container">
   <p *ngIf="isLoading">loading....</p>
+  <h5 *ngIf="groups">{{ errorMessage }}</h5>
   <app-group *ngFor="let group of groups | async" [group]="group"></app-group>
 </div>

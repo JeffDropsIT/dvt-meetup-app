@@ -10,7 +10,7 @@
     height: 350px;
 
 }
-.current-work{
+.card-img-top{
     background: #8de6f394;
 }
 .card-body-img{
@@ -41,7 +41,7 @@
 .avatar-container{
     border-radius: 100%;
 }
-.card-content{
+.user-details-container, .avatar-container{
     margin: 10px;
 }
 .user-details-container > h6{

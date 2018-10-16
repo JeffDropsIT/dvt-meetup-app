@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from "jquery";
 import { CategoriesService } from '../services/categories/categories.service';
 import { startWith } from "rxjs/operators";
+import { error } from '../../../node_modules/@angular/compiler/src/util';
 const KEY = "CAT_KEYS";
 @Component({
   selector: 'app-categories',
@@ -11,20 +12,32 @@ const KEY = "CAT_KEYS";
 export class CategoriesComponent implements OnInit {
  
 
-  categories;
+  categories = [];
+  errorMessage;
   constructor(private categoriesService: CategoriesService) { }
 
 
   getCategories(): void{
-    this.categories = this.categoriesService.getCategories();  //.subscribe(data => this.categories = data.results);
 
-    this.categories.subscribe( 
-      data => {if(data){localStorage[KEY] = JSON.stringify(data.results)}}
+    this.categoriesService.getCategories().subscribe( 
+      data => {if(data){localStorage[KEY] = JSON.stringify(data.results)}},
+      error =>{
+        this.errorMessage = error;
+      }
     );
-
-    this.categories = this.categories.pipe(
+    this.categoriesService.getCategories().pipe(
       startWith(JSON.parse(localStorage[KEY] || "[]"))
-    )
+    ).subscribe( data => {
+       for(var el in data){
+         this.categories.push(data[el]);
+       }
+    },
+
+    error =>{
+      this.errorMessage = error;
+    }
+  
+  );
   }
 
 
